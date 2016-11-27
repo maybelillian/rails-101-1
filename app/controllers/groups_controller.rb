@@ -11,10 +11,11 @@ class GroupsController < ApplicationController
 
     def show
 	    @group = Group.find(params[:id])
+	    @posts = @group.posts
     end
 
     def edit
-	    find_group_and_check_permission
+	    
     end
 
 
@@ -30,7 +31,7 @@ class GroupsController < ApplicationController
 	end
 
 	def update
-		find_group_and_check_permission
+		
 
 		if @group.update(group_params)
 
@@ -41,7 +42,6 @@ class GroupsController < ApplicationController
 	end
     
     def destroy
-    	find_group_and_check_permission
 
     	@group.destroy
     	
